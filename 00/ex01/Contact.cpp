@@ -19,15 +19,25 @@ void	Contact::Clear()
 void	Contact::New()
 {
 	cout << "First Name: " << endl;
-	cin	>> FirstName;
+	do {
+		getline(cin, FirstName);
+	} while(FirstName == "");
 	cout << "Second Name: " << endl;
-	cin	>> SecondName;
+	do {
+		getline(cin, SecondName);
+	} while(SecondName == "");
 	cout << "Nickname: " << endl;
-	cin	>> Nickname;
+	do {
+		getline(cin, Nickname);
+	} while(Nickname == "");
 	cout << "Phone Number: " << endl;
-	cin >> PhoneNumber;
+	do {
+		getline(cin, PhoneNumber);
+	} while(PhoneNumber == "");
 	cout << "Darkest Secret: " << endl;
-	cin >> DarkestSecret;
+	do {
+		getline(cin, DarkestSecret);
+	} while(DarkestSecret == "");
 	Empty = false;
 }
 
@@ -51,7 +61,13 @@ void	Contact::PrintRow()
 
 void	Contact::Print()
 {
-	cout << "\n" << FirstName << endl;
+	cout << endl;
+	if (IsEmpty())
+	{
+		cout << "This contact does not exist yet." << endl;
+		return ;
+	}
+	cout << FirstName << endl;
 	cout << SecondName << endl;
 	cout << Nickname << endl;
 	cout << PhoneNumber << endl;

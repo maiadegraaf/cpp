@@ -2,7 +2,7 @@
 
 void	Phonebook::PrintContactList()
 {
-	cout << "\n...\n\nContact List:" << endl;
+	cout << "\n\nContact List:" << endl;
 	cout << "\n|"<< setw(10) << "INDEX  ";
 	cout << "|" << setw(10) << "1st NAME ";
 	cout << "|" << setw(10) << "2nd NAME ";
@@ -41,7 +41,7 @@ void	Phonebook::Add()
 		pb.Contacts[7].Print();
 		cout << "\nEnter Y to continue." << endl;
 		string Response;
-		cin >> Response;
+		getline(cin, Response);
 		if (!Response.compare("Y"))
 			pb.Contacts[7].Clear();
 		else
@@ -49,7 +49,6 @@ void	Phonebook::Add()
 	}
 	if (!pb.Contacts[0].IsEmpty())
 	{
-		cout << "HELLO" << endl;
 		int i = 7;
 		Contact First = pb.Contacts[0];
 		pb.Contacts[0] = pb.Contacts[7];
@@ -61,17 +60,14 @@ void	Phonebook::Add()
 		pb.Contacts[1] = First;
 	}
 	pb.Contacts[0].New();
+	cout << endl;
 }
 
-void	RunPhoneBook()
+void	RunPhoneBook(string Response)
 {
-	string	Response;
-	cout << ">> ";
-	cin >> Response;
+	cin.clear();
 	if (!Response.compare("ADD"))
-	{
 		pb.Add();
-	}
 	else if (!Response.compare("SEARCH"))
 	{
 		pb.PrintContactList();
@@ -82,7 +78,6 @@ void	RunPhoneBook()
 		cout << "👋" << endl;
 		exit(EXIT_SUCCESS);
 	}
-	RunPhoneBook();
 }
 
 void	PrintTitle()
@@ -98,13 +93,15 @@ void	PrintTitle()
 int main(void)
 {
 	PrintTitle();
-	cout << "\nWelcome to My Awesome Phonebook!!\n" << endl;
-	cout << setfill('*') << setw(55) << "" << endl;
-	cout << "The available commands are:" << endl;
-	cout << " * ADD: Create a new contact." << endl;
-	cout << " * SEARCH: View and find contacts." << endl;
-	cout << " * EXIT: Exit the program." << endl;
-	cout << setw(56) << "\n" << setfill(' ') <<endl;
-	RunPhoneBook();
+	cout << "\n\t\t  Welcome to My Awesome Phonebook!!\n" << endl;
+	cout << setfill('*') << setw(73) << "" << endl;
+	cout << "\nThe available commands are:" << endl;
+	cout << " * ADD\t\tCreate a new contact." << endl;
+	cout << " * SEARCH\tView and find contacts." << endl;
+	cout << " * EXIT\t\tExit the program.\n" << endl;
+	cout << setw(74) << "\n" << setfill(' ') <<endl;
+	string	Response;
+	while (getline(cin, Response))
+		RunPhoneBook(Response);
 	return 0;
 }

@@ -12,9 +12,9 @@ BUILD_PATHS = $(PATHB) $(PATHO)
 SRC	=	Contact.cpp \
 		Phonebook.cpp
 
-OBJS	=	$(addprefix $(PATHO), $(notdir $(patsubst %.cpp, %.o, $(src))))
+OBJS	=	$(addprefix $(PATHO), $(SRC:.cpp=.o))
 
-FLAGS	=	-Wall -Werror -Wextra -g #-fsanitize=address
+FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
 HEADER	=	Contact.hpp \
 			Phonebook.hpp
@@ -27,10 +27,9 @@ $(PATHO)%.o:: $(PATHS)%.cpp
 	@echo "Compiling ${notdir $<}			in	$(PATHS)"
 	@$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
 
+$(NAME): $(OBJS) $(HEADERS)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
-
-$(NAME): $(SRC) $(HEADERS)
-	@$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
 $(PATHB):
 	@$(MKDIR) $(PATHB)
