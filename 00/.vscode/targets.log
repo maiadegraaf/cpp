@@ -6,8 +6,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Thu May 19 16:39:02 2022
+
+# Make data base, printed on Fri May 20 14:44:00 2022
 
 # Variables
 
@@ -24,7 +27,7 @@ VSCODE_LOG_NATIVE = false
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/mgraaf/Documents/cpp/00
+CURDIR := /Users/mgraaf/Documents/cpp/cpp/00
 # makefile
 SHELL = /bin/sh
 # environment
@@ -36,13 +39,13 @@ MAKEFILE_LIST :=
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000_v7m002psx/T/vscode-ipc-737b37d1-c538-473e-9fe8-b8abf9dbbfaa.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000_v7m002psx/T/vscode-ipc-aa58dd20-1d25-4911-879d-871d9ddecbc9.sock
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.6POqPPMFJE/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.UAdBsvEvQf/Render
 # environment
-PATH = /Users/mgraaf/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+PATH = /Users/mgraaf/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/opt/X11/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
@@ -52,15 +55,17 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.TXsOPOz5Cz/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.FMPa7aZYca/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 HOMEBREW_TEMP = /tmp/mgraaf/Homebrew/Temp
 # environment
+DISPLAY = /private/tmp/com.apple.launchd.jiPAcj5T4z/org.xquartz:0
+# environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/mgraaf/Documents/cpp/00
+PWD = /Users/mgraaf/Documents/cpp/cpp/00
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -70,7 +75,7 @@ HOME = /Users/mgraaf
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/mgraaf/Library/Application Support/Code - Insiders/CachedData/688c80245936b49b7ceca494d9edfe97cae06f8a
+VSCODE_CODE_CACHE_PATH = /Users/mgraaf/Library/Application Support/Code - Insiders/CachedData/17c75e11805103026b943c8dc4d50a35f245f76f
 # environment
 LOGNAME = mgraaf
 # environment
@@ -118,7 +123,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCodeInsiders.2384
+XPC_SERVICE_NAME = com.microsoft.VSCodeInsiders.3304
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -144,9 +149,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 13509
+VSCODE_PID = 1282
 # variable set hash-table stats:
-# Load=67/1024=7%, Rehash=0, Collisions=1/88=1%
+# Load=68/1024=7%, Rehash=0, Collisions=1/89=1%
 
 # Pattern-specific Variable Values
 
@@ -228,8 +233,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Thu May 19 16:39:02 2022
+# Finished Make data base on Fri May 20 14:44:00 2022
 
  
-make: *** No rule to make target `all'.  Stop.
-

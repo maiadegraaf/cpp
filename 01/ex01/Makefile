@@ -1,27 +1,21 @@
-NAME = MyAwesomePhoneBook
+NAME = MoarBrainz!
 MKDIR = mkdir
 
 CC = g++
 
-PATHB = build/
-PATHO = build/objs/
-PATHS = .
-
-BUILD_PATHS = $(PATHB) $(PATHO)
-
-SRC	=	Contact.cpp \
-		Phonebook.cpp
+SRC	=	main.cpp \
+		Zombie.cpp \
+		zombieHorde.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	Contact.hpp \
-			Phonebook.hpp
+HEADER	=	Zombie.hpp
 
-INCLUDES =-Iincludes -I
+INCLUDES = -Iincludes -I
 
-all: $(BUILD_PATHS) $(NAME)
+all: $(NAME)
 
 $(PATHO)%.o:: $(PATHS)%.cpp
 	@echo "Compiling ${notdir $<}			in	$(PATHS)"

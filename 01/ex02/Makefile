@@ -1,31 +1,19 @@
-NAME = MyAwesomePhoneBook
+NAME = BRAIN
 MKDIR = mkdir
 
 CC = g++
 
-PATHB = build/
-PATHO = build/objs/
-PATHS = .
-
-BUILD_PATHS = $(PATHB) $(PATHO)
-
-SRC	=	Contact.cpp \
-		Phonebook.cpp
+SRC	=	main.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	Contact.hpp \
-			Phonebook.hpp
-
-INCLUDES =-Iincludes -I
-
-all: $(BUILD_PATHS) $(NAME)
+all: $(NAME)
 
 $(PATHO)%.o:: $(PATHS)%.cpp
 	@echo "Compiling ${notdir $<}			in	$(PATHS)"
-	@$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
+	@$(CC) -c $(FLAGS) $< -o $@
 
 $(NAME): $(OBJS) $(HEADERS)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)

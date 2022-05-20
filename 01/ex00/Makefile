@@ -1,4 +1,4 @@
-NAME = MyAwesomePhoneBook
+NAME = BraiiiiiiinnnzzzZ
 MKDIR = mkdir
 
 CC = g++
@@ -9,17 +9,18 @@ PATHS = .
 
 BUILD_PATHS = $(PATHB) $(PATHO)
 
-SRC	=	Contact.cpp \
-		Phonebook.cpp
+SRC	=	main.cpp \
+		Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	Contact.hpp \
-			Phonebook.hpp
+HEADER	=	Zombie.hpp
 
-INCLUDES =-Iincludes -I
+INCLUDES = -Iincludes -I
 
 all: $(BUILD_PATHS) $(NAME)
 
