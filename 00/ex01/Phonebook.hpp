@@ -12,6 +12,7 @@ private:
 public:
 	void	PrintContactList();
 	void	Search();
+	void	Add();
 	// Phonebook(/* args */);
 	// ~Phonebook();
 } pb;

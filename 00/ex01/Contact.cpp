@@ -2,14 +2,21 @@
 
 Contact::Contact()
 {
+	Clear();
+}
+
+void	Contact::Clear()
+{
 	FirstName = "**EMPTY**";
 	SecondName = "**EMPTY**";
 	Nickname = "**EMPTY**";
-	PhoneNumber = 0;
+	PhoneNumber = "**EMPTY**";
 	DarkestSecret = "**EMPTY**";
+	Empty = true;
 }
 
-void	Contact::NewContact()
+
+void	Contact::New()
 {
 	cout << "First Name: " << endl;
 	cin	>> FirstName;
@@ -21,6 +28,7 @@ void	Contact::NewContact()
 	cin >> PhoneNumber;
 	cout << "Darkest Secret: " << endl;
 	cin >> DarkestSecret;
+	Empty = false;
 }
 
 inline string	Truncate(string	str)
@@ -33,7 +41,7 @@ inline string	Truncate(string	str)
 	return (str);
 }
 
-void	Contact::PrintContactRow()
+void	Contact::PrintRow()
 {
 	cout << "|" << setw(10) << Truncate(FirstName);
 	cout << "|" << setw(10) << Truncate(SecondName);
@@ -41,7 +49,7 @@ void	Contact::PrintContactRow()
 	cout << "|" << endl;
 }
 
-void	Contact::PrintContact()
+void	Contact::Print()
 {
 	cout << "\n" << FirstName << endl;
 	cout << SecondName << endl;

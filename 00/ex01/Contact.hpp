@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <limits>
 using namespace std;
 
 class Contact
@@ -11,13 +12,16 @@ private:
 	string	FirstName;
 	string	SecondName;
 	string	Nickname;
-	int		PhoneNumber;
+	string	PhoneNumber;
 	string	DarkestSecret;
+	bool	Empty;
 public:
 	Contact();
-	void	NewContact();
-	void	PrintContactRow();
-	void	PrintContact();
+	void	New();
+	void	PrintRow();
+	void	Print();
+	bool	IsEmpty() {return (Empty);};
+	void	Clear();
 	// ~Contact();
 };
 
