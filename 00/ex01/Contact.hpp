@@ -4,16 +4,16 @@
 #include <iostream>
 #include <iomanip>
 #include <limits>
-using namespace std;
+
 
 class Contact
 {
 private:
-	string	FirstName;
-	string	SecondName;
-	string	Nickname;
-	string	PhoneNumber;
-	string	DarkestSecret;
+	std::string	FirstName;
+	std::string	SecondName;
+	std::string	Nickname;
+	std::string	PhoneNumber;
+	std::string	DarkestSecret;
 	bool	Empty;
 public:
 	Contact();

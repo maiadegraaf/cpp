@@ -1,21 +1,21 @@
-#ifndef __WEAPON_H__
-#define __WEAPON_H__
+#ifndef _weapon_H__
+#define _weapon_H__
 #include <string>
 #include <iostream>
 #include <iomanip>
 #include <limits>
 #include <stdlib.h>
-using namespace std;
+
 
 class Weapon
 {
 private:
-	string	type;
+	std::string type;
 public:
 	Weapon(){type = "NONE";};
-	Weapon(string weaponType){type = weaponType;};
-	const string& getType() {return type;};
-	void setType(string newType) {type = newType;};
+	Weapon(std::string weaponType){type = weaponType;};
+	const std::string& getType() {return type;};
+	void setType(std::string newType) {type = newType;};
 };
 
-#endif // __WEAPON_H__
+#endif // _weapon_H__

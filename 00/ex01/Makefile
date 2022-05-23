@@ -1,10 +1,8 @@
 NAME = MyAwesomePhoneBook
 MKDIR = mkdir
 
-CC = g++
+CC = c++
 
-PATHB = build/
-PATHO = build/objs/
 PATHS = .
 
 BUILD_PATHS = $(PATHB) $(PATHO)
@@ -30,12 +28,6 @@ $(PATHO)%.o:: $(PATHS)%.cpp
 $(NAME): $(OBJS) $(HEADERS)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
-
-$(PATHB):
-	@$(MKDIR) $(PATHB)
-
-$(PATHO):
-	@$(MKDIR) $(PATHO)
 
 clean:
 	@echo "Cleaning"

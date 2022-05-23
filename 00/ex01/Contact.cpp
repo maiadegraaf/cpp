@@ -18,30 +18,30 @@ void	Contact::Clear()
 
 void	Contact::New()
 {
-	cout << "First Name: " << endl;
+	std::cout << "First Name: " << std::endl;
 	do {
-		getline(cin, FirstName);
+		getline(std::cin, FirstName);
 	} while(FirstName == "");
-	cout << "Second Name: " << endl;
+	std::cout << "Second Name: " << std::endl;
 	do {
-		getline(cin, SecondName);
+		getline(std::cin, SecondName);
 	} while(SecondName == "");
-	cout << "Nickname: " << endl;
+	std::cout << "Nickname: " << std::endl;
 	do {
-		getline(cin, Nickname);
+		getline(std::cin, Nickname);
 	} while(Nickname == "");
-	cout << "Phone Number: " << endl;
+	std::cout << "Phone Number: " << std::endl;
 	do {
-		getline(cin, PhoneNumber);
+		getline(std::cin, PhoneNumber);
 	} while(PhoneNumber == "");
-	cout << "Darkest Secret: " << endl;
+	std::cout << "Darkest Secret: " << std::endl;
 	do {
-		getline(cin, DarkestSecret);
+		getline(std::cin, DarkestSecret);
 	} while(DarkestSecret == "");
 	Empty = false;
 }
 
-inline string	Truncate(string	str)
+inline std::string	Truncate(std::string str)
 {
 	if (str.length() > 10)
 	{
@@ -53,23 +53,23 @@ inline string	Truncate(string	str)
 
 void	Contact::PrintRow()
 {
-	cout << "|" << setw(10) << Truncate(FirstName);
-	cout << "|" << setw(10) << Truncate(SecondName);
-	cout << "|" << setw(10) << Truncate(Nickname);
-	cout << "|" << endl;
+	std::cout << "|" << std::setw(10) << Truncate(FirstName);
+	std::cout << "|" << std::setw(10) << Truncate(SecondName);
+	std::cout << "|" << std::setw(10) << Truncate(Nickname);
+	std::cout << "|" << std::endl;
 }
 
 void	Contact::Print()
 {
-	cout << endl;
+	std::cout << std::endl;
 	if (IsEmpty())
 	{
-		cout << "This contact does not exist yet." << endl;
+		std::cout << "This contact does not exist yet." << std::endl;
 		return ;
 	}
-	cout << FirstName << endl;
-	cout << SecondName << endl;
-	cout << Nickname << endl;
-	cout << PhoneNumber << endl;
-	cout << DarkestSecret << endl;
+	std::cout << FirstName << std::endl;
+	std::cout << SecondName << std::endl;
+	std::cout << Nickname << std::endl;
+	std::cout << PhoneNumber << std::endl;
+	std::cout << DarkestSecret << std::endl;
 }

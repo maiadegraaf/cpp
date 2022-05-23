@@ -1,25 +1,24 @@
-NAME = MoarBrainz!
+NAME = SedIsForLosers
 MKDIR = mkdir
 
-CC = g++
+CC = c++
 
 PATHS = .
 
-SRC	=	main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
+SRC	=	CpFile.cpp \
+		main.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	Zombie.hpp
+HEADER	=	CpFile.hpp
 
 INCLUDES = -Iincludes -I
 
 all: $(NAME)
 
-$(PATHO)%.o:: $(PATHS)%.cpp
+$(PATHO)%.o: $(PATHS)%.cpp $(HEADER)
 	@echo "Compiling ${notdir $<}			in	$(PATHS)"
 	@$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
 

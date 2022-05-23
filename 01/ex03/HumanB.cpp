@@ -2,15 +2,18 @@
 
 void HumanB::attack()
 {
-		cout << name << " attacks with their " << weapon.getType() << endl;
+	if (weapon)
+		std::cout << name << " attacks with their " << weapon->getType() << std::endl;
+	else
+		std::cout << name << " attacks with their imagination" << std::endl;
 }
 
-void HumanB::setWeapon(Weapon newWeapon)
+void HumanB::setWeapon(Weapon& newWeapon)
 {
-	weapon.setType(newWeapon.getType());
+	weapon = &newWeapon;
 }
 
-HumanB::HumanB(string newName)
+HumanB::HumanB(std::string newName)
 {
 	name = newName;
 }

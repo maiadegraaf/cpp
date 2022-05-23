@@ -1,13 +1,9 @@
 NAME = BraiiiiiiinnnzzzZ
 MKDIR = mkdir
 
-CC = g++
+CC = c++
 
-PATHB = build/
-PATHO = build/objs/
 PATHS = .
-
-BUILD_PATHS = $(PATHB) $(PATHO)
 
 SRC	=	main.cpp \
 		Zombie.cpp \
@@ -25,18 +21,12 @@ INCLUDES = -Iincludes -I
 all: $(BUILD_PATHS) $(NAME)
 
 $(PATHO)%.o:: $(PATHS)%.cpp
-	@echo "Compiling ${notdir $<}			in	$(PATHS)"
+	@echo "Compiling ${notdir $<}"
 	@$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
-
-$(PATHB):
-	@$(MKDIR) $(PATHB)
-
-$(PATHO):
-	@$(MKDIR) $(PATHO)
 
 clean:
 	@echo "Cleaning"

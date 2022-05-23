@@ -2,24 +2,24 @@
 
 int main(void)
 {
-	string hordeName;
-	cout << "What would you like to name your Zombie babies?" << endl;
-	getline(cin, hordeName);
-	cin.clear();
+	std::string hordeName;
+	std::cout << "What would you like to name your Zombie babies?" << std::endl;
+	getline(std::cin, hordeName);
+	std::cin.clear();
 	int	N;
-	cout << "How many Zombie babies would you like?" << endl;
-	cin >> N;
-	while (!cin.good())
+	std::cout << "How many Zombie babies would you like?" << std::endl;
+	std::cin >> N;
+	while (!std::cin.good())
 	{
-		cout << "\nThats not a number!?" << endl;
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cin >> N;
+		std::cout << "\nThats not a number!?" << std::endl;
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cin >> N;
 	}
 	Zombie *horde = zombieHorde(N, hordeName);
 	for (int i = 0; i < N; i++)
 	{
-		cout << i + 1 << ": ";
+		std::cout << i + 1 << ": ";
 		horde[i].announce();
 	}
 	delete[](horde);

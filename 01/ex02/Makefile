@@ -1,7 +1,7 @@
 NAME = BRAIN
 MKDIR = mkdir
 
-CC = g++
+CC = c++
 
 SRC	=	main.cpp
 
@@ -18,12 +18,6 @@ $(PATHO)%.o:: $(PATHS)%.cpp
 $(NAME): $(OBJS) $(HEADER)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
-
-$(PATHB):
-	@$(MKDIR) $(PATHB)
-
-$(PATHO):
-	@$(MKDIR) $(PATHO)
 
 clean:
 	@echo "Cleaning"

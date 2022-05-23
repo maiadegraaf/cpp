@@ -6,18 +6,18 @@
 #include <iomanip>
 #include <limits>
 #include <stdlib.h>
-using namespace std;
+
 
 class Zombie
 {
 private:
-	string	name;
+	std::string name;
 public:
 	void	announce(void);
-	void	setName(string name);
+	void	setName(std::string name);
 	void	destruct(void);
 };
 
-Zombie *zombieHorde(int N, string name);
+Zombie *zombieHorde(int N, std::string name);
 
 #endif // __ZOMBIE_H__

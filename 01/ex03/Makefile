@@ -1,7 +1,7 @@
 NAME = UnnecessaryViolence
 MKDIR = mkdir
 
-CC = g++
+CC = c++
 
 PATHS = .
 
@@ -24,17 +24,11 @@ all: $(NAME)
 
 $(PATHO)%.o: $(PATHS)%.cpp $(HEADER)
 	@echo "Compiling ${notdir $<}			in	$(PATHS)"
-	$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
+	@$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
-
-$(PATHB):
-	@$(MKDIR) $(PATHB)
-
-$(PATHO):
-	@$(MKDIR) $(PATHO)
 
 clean:
 	@echo "Cleaning"

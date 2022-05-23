@@ -1,16 +1,16 @@
 #include <string>
 #include <iostream>
-using namespace std;
+
 
 int main(void)
 {
-	string message = "HI THIS IS BRAIN";
-	string *stringPTR = &message;
-	string &stringREF = message;
-	cout << &message << endl;
-	cout << &stringPTR << endl;
-	cout << &stringREF << endl;
-	cout << message << endl;
-	cout << *stringPTR << endl;
-	cout << stringREF << endl;
+	std::string message = "HI THIS IS BRAIN";
+	std::string *stringPTR = &message;
+	std::string &stringREF = message;
+	std::cout << &message << std::endl;
+	std::cout << &stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+	std::cout << message << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
 }

@@ -1,17 +1,15 @@
 NAME = megaphone
 MKDIR = mkdir
 
-CC = g++
+CC = c++
 
-PATHB = build/
-PATHO = build/objs/
 PATHS = .
 
 BUILD_PATHS = $(PATHB) $(PATHO)
 
-src	=	megaphone.cpp
+SRC	=	megaphone.cpp
 
-OBJS	=	$(addprefix $(PATHO), $(notdir $(patsubst %.c, %.o, $(src))))
+OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra -g #-fsanitize=address
 
@@ -21,17 +19,13 @@ INCLUDES =-Iincludes -I
 
 all: $(BUILD_PATHS) $(NAME)
 
-$(PATHO)%.o:: $(PATHS)%.c
-	@echo "Compiling ${notdir $<}			in	$(PATHS)"
-	@$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
-
+$(NAME): $(OBJS) $(HEADERS)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
-	
-$(PATHB):
-	@$(MKDIR) $(PATHB)
 
-$(PATHO):
-	@$(MKDIR) $(PATHO)
+test: all
+	./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
+	@echo DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF.
 
 clean:
 	@echo "Cleaning"

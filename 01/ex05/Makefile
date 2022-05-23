@@ -1,27 +1,22 @@
-NAME = MoarBrainz!
+NAME = Harl2.0
 MKDIR = mkdir
 
-CC = g++
+CC = c++
 
 PATHS = .
 
-SRC	=	main.cpp \
-		Zombie.cpp \
-		zombieHorde.cpp
+SRC	=	Harl.cpp \
+		main.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	Zombie.hpp
+HEADER	=	Harl.hpp
 
 INCLUDES = -Iincludes -I
 
 all: $(NAME)
-
-$(PATHO)%.o:: $(PATHS)%.cpp
-	@echo "Compiling ${notdir $<}			in	$(PATHS)"
-	@$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
