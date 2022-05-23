@@ -12,6 +12,8 @@ class Weapon
 private:
 	string	type;
 public:
+	Weapon(){type = "NONE";};
+	Weapon(string weaponType){type = weaponType;};
 	const string& getType() {return type;};
 	void setType(string newType) {type = newType;};
 };

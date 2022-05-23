@@ -2,10 +2,16 @@
 
 void HumanA::attack()
 {
-	cout << name << " attacks with their " << weaponType.getType() << endl;
+	cout << name << " attacks with their " << weapon.getType() << endl;
 }
 
 void HumanA::setWeapon(Weapon newWeapon)
 {
-	weaponType = 
+	weapon = newWeapon;
+}
+
+HumanA::HumanA(string newName, Weapon newWeapon)
+{
+	name = newName;
+	weapon.setType(newWeapon.getType());
 }

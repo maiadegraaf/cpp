@@ -5,16 +5,12 @@
 class HumanB
 {
 private:
-	Weapon weaponType;
+	Weapon weapon;
 	string name;
 public:
 	HumanB(string newName);
+	void setWeapon(Weapon newWeapon);
 	void attack(void);
 };
-
-HumanB::HumanB(string newName)
-{
-	name = newName;
-}
 
 #endif // __HUMANB_H__

@@ -1,7 +1,9 @@
-NAME = MoarBrainz!
+NAME = UnnecessaryViolence
 MKDIR = mkdir
 
 CC = g++
+
+PATHS = .
 
 SRC	=	HumanA.cpp \
 		HumanB.cpp \
@@ -20,12 +22,12 @@ INCLUDES = -Iincludes -I
 
 all: $(NAME)
 
-$(PATHO)%.o:: $(PATHS)%.cpp
+$(PATHO)%.o: $(PATHS)%.cpp $(HEADER)
 	@echo "Compiling ${notdir $<}			in	$(PATHS)"
-	@$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
+	$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
 
-$(NAME): $(OBJS) $(HEADERS)
-	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) $(HEADER)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
 
 $(PATHB):
