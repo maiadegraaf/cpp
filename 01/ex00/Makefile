@@ -28,7 +28,7 @@ $(PATHO)%.o:: $(PATHS)%.cpp
 	@echo "Compiling ${notdir $<}			in	$(PATHS)"
 	@$(CC) -c $(FLAGS) $(INCLUDES) $< -o $@
 
-$(NAME): $(OBJS) $(HEADERS)
+$(NAME): $(OBJS) $(HEADER)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
 
