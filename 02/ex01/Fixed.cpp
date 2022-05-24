@@ -11,6 +11,12 @@ Fixed::Fixed(const int num)
 	FixedPoint = (num << FractBits);
 }
 
+Fixed::Fixed(const float num)
+{
+	std::cout << "Float constructor called" << std::endl;
+	FixedPoint = (round(num * (1 << FractBits)));
+}
+
 Fixed::Fixed(const Fixed& other) : FixedPoint(other.FixedPoint)
 {
 	std::cout << "Copy constructor called" << std::endl;
@@ -25,10 +31,10 @@ Fixed& Fixed::operator=(Fixed other)
 
 Fixed::~Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default destructor called" << std::endl;
 }
 
-int Fixed::getRawBits(void)
+int Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (FixedPoint);
@@ -40,16 +46,18 @@ void Fixed::setRawBits(int const raw)
 	FixedPoint = raw;
 }
 
-std::ostream& operator<<(std::ostream& os, Fixed& obj)
+float Fixed::toFloat(void) const
 {
-	os << obj.getRawBits();
-	return os;
+	return ((float)FixedPoint / (float)(1 << FractBits));
+}
+
+int Fixed::toInt(void) const
+{
+	return (FixedPoint >> FractBits);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
-	Fixed	tmp;
-	tmp = obj;
-	os << tmp.getRawBits();
+	os << obj.toFloat();
 	return os;
 }
