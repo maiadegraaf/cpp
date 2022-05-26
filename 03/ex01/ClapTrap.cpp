@@ -9,13 +9,13 @@ ClapTrap::ClapTrap(std::string nName)
 ClapTrap::ClapTrap(void)
 	: Name("default"), HitPoints(10), EnergyPoints(10), AttackDamage(0)
 {
-	std::cout << "ClapTrap " << Name << " has been constructed." << std::endl;
+	std::cout << "Default ClapTrap has been constructed." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 	: Name(other.Name), HitPoints(other.HitPoints), EnergyPoints(other.EnergyPoints), AttackDamage(other.AttackDamage)
 {
-	std::cout << "ClapTrap copy constructed called on" << other.Name << std::endl;
+	std::cout << "ClapTrap copy constructed called on " << other.Name << std::endl;
 }
 
 ClapTrap	ClapTrap::operator=(const ClapTrap& other)

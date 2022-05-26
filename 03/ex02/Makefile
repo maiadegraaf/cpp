@@ -1,4 +1,4 @@
-NAME = SerenaMyLove
+NAME = RepetitiveWork
 MKDIR = mkdir
 
 CC = c++
@@ -7,6 +7,7 @@ PATHS = .
 
 SRC	=	ClapTrap.cpp \
 		ScavTrap.cpp \
+		FragTrap.cpp \
 		main.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
@@ -15,6 +16,7 @@ FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
 HEADER	=	ClapTrap.hpp \
 			ScavTrap.hpp \
+			FragTrap.hpp \
 			color.hpp
 
 INCLUDES = -Iincludes -I

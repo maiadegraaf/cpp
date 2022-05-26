@@ -1,21 +1,17 @@
-NAME = SerenaMyLove
+NAME = Polymorphism
 MKDIR = mkdir
 
 CC = c++
 
 PATHS = .
 
-SRC	=	ClapTrap.cpp \
-		ScavTrap.cpp \
-		main.cpp
+SRC	=	main.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	ClapTrap.hpp \
-			ScavTrap.hpp \
-			color.hpp
+HEADER	=	
 
 INCLUDES = -Iincludes -I
 
