@@ -13,8 +13,8 @@ public:
 	Point(const Point &other) : x(other.x), y(other.y) {};
 	~Point() {};
 	Point& operator=(const Point &other);
-	Fixed	side(Point a, Point b, Point point);
-	Fixed	dot(Point a, Point b) {return (a.x * b.x + a.y * b.y);}
+	static Fixed	triangleArea(const Point a, const Point b, const Point c);
+	static void	check_point( Point const a, Point const b, Point const c, Point const point);
 };
 
 #endif // __POINT_H__

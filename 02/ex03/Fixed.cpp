@@ -60,12 +60,16 @@ bool	Fixed::operator!=(Fixed other) const
 
 Fixed Fixed::operator+(Fixed other) const
 {
-	return (Fixed(FixedPoint + other.FixedPoint));
+	Fixed ret;
+	ret.setRawBits(FixedPoint + other.FixedPoint);
+	return ret;
 }
 
 Fixed Fixed::operator-(Fixed other) const
 {
-	return (Fixed(FixedPoint - other.FixedPoint));
+	Fixed ret;
+	ret.setRawBits(FixedPoint - other.FixedPoint);
+	return ret;
 }
 
 Fixed Fixed::operator*(Fixed other) const
