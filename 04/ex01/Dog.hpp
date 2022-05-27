@@ -1,10 +1,12 @@
 #ifndef __DOG_H__
 #define __DOG_H__
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public Animal
+{
 	private:
-		
+		Brain	_brain;
 	public:
 		Dog();
 		Dog( const Dog& rhs );

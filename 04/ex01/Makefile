@@ -1,4 +1,4 @@
-NAME = Polymorphism
+NAME = IDontWantToSetTheWorldOnFire
 MKDIR = mkdir
 
 CC = c++
@@ -21,7 +21,6 @@ HEADER	=	Animal.hpp \
 			WrongAnimal.hpp \
 			WrongCat.hpp \
 			Dog.hpp
-
 
 INCLUDES = -Iincludes -I
 
