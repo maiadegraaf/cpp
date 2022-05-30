@@ -1,29 +1,27 @@
-NAME = InterfaceAndRecap
+NAME = Bureaucrat
 MKDIR = mkdir
 
 CC = c++
 
 PATHS = .
 
-SRC	=	main.cpp \
-		AMateria.cpp \
-		Character.cpp \
-		Cure.cpp \
-		Ice.cpp \
-		MateriaSource.cpp
-
+SRC	=	Bureaucrat.cpp \
+		Form.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
+		main.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	AMateria.hpp \
-			Character.hpp \
-			Cure.hpp \
-			ICharacter.hpp \
-			IMateriaSource.hpp \
-			Ice.hpp \
-			MateriaSource.hpp
+HEADER	=	Bureaucrat.hpp \
+			Form.hpp \
+			PresidentialPardonForm.hpp \
+			RobotomyRequestForm.hpp \
+			ShrubberyCreationForm.hpp \
+			color.hpp
 
 INCLUDES = -Iincludes -I
 

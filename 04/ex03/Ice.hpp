@@ -2,10 +2,10 @@
 #define ICE_H
 #include <iostream>
 #include <string>
-#include "aMateria.hpp"
+#include "AMateria.hpp"
  
 // Class definition 
-class Ice : public aMateria
+class Ice : public AMateria
 {
 public: 
 // Constructor 
@@ -13,7 +13,7 @@ public:
 	Ice( const Ice &rhs); 
 	~Ice(void); 
 	Ice& operator=( const Ice &rhs); 
-	aMateria* clone() const;
+	Ice* clone() const;
 	void use(ICharacter& target);
 }; 
  

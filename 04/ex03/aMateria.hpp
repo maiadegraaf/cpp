@@ -1,22 +1,22 @@
-#ifndef AMATERIA_H
-#define AMATERIA_H
+#ifndef AMateria_H
+#define AMateria_H
 #include <iostream>
 #include <string>
 #include "ICharacter.hpp"
 
 // Class definition 
-class aMateria
+class AMateria
 {
 protected: 
 	std::string type;
  
 public: 
 // Constructor 
-	aMateria(); 
-	aMateria( const aMateria &rhs); 
-	aMateria(std::string newType);
-	~aMateria(); 
-	aMateria& operator=( const aMateria &rhs);
+	AMateria(); 
+	AMateria( const AMateria &rhs); 
+	AMateria(std::string newType);
+	virtual	~AMateria(); 
+	AMateria& operator=( const AMateria &rhs);
 //Getters 
 	std::string const & getType() const; 
 //Setters 
@@ -24,7 +24,7 @@ public:
 // ToString Method 
 	void toString();
 
-	virtual aMateria* clone() const = 0;
+	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter & target);
 }; 
  

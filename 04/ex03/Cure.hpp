@@ -2,10 +2,10 @@
 #define CURE_H
 #include <iostream>
 #include <string>
-#include "aMateria.hpp"
+#include "AMateria.hpp"
  
 // Class definition 
-class Cure : public aMateria
+class Cure : public AMateria
 {
 public: 
 // Constructor 
@@ -13,7 +13,7 @@ public:
 	Cure( const Cure &rhs); 
 	~Cure(void); 
 	Cure& operator=( const Cure &rhs); 
-	aMateria* clone() const;
+	Cure* clone() const;
 	void use(ICharacter& target);
 }; 
  

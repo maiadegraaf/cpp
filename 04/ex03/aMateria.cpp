@@ -1,45 +1,43 @@
-#include "aMateria.hpp"
+#include "AMateria.hpp"
 // Constructor initializes attributes to 0 by default 
-aMateria::aMateria()
+AMateria::AMateria()
 	: type(0) {}
  
-aMateria::aMateria( const aMateria& rhs)
+AMateria::AMateria( const AMateria& rhs)
 {
 	*this = rhs;
 }
  
-aMateria::aMateria(std::string newType) 
+AMateria::AMateria(std::string newType) 
 	: type(newType) {}
 
-aMateria::~aMateria()
+AMateria::~AMateria()
 {
 
 }
 
-aMateria&	aMateria::operator=( const aMateria& rhs )
+AMateria&	AMateria::operator=( const AMateria& rhs )
 {
+	*this = rhs;
 	return *this;
 }
 
 //Getters 
-std::string const &aMateria::getType() const
+std::string const &AMateria::getType() const
 {
 	return type;
 }
  
 //Setters 
-void aMateria::setType(std::string newType) { type= newType; }
+void AMateria::setType(std::string newType) { type= newType; }
  
 // toString 
-void aMateria::toString()
+void AMateria::toString()
 {
-  cout << "type" << type << endl; 
+	std::cout << "type" << type << std::endl; 
 }
 
-
-aMateria* aMateria::clone() const = 0
+void AMateria::use(ICharacter & target)
 {
-	aMateria *cln = new aMateria;
-	cln = *this;
-	return cln;
+	std::cout << " * uses materia on " << target.getName() << " *" << std::endl;
 }

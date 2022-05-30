@@ -28,23 +28,26 @@ printf "public: \n" >> $1.hpp
 echo "// Constructor " >> $1.hpp
 printf "\t$1(); \n" >> $1.hpp
 printf "\t$1( const $1 &rhs); \n" >> $1.hpp
-printf "\t$1(" >> $1.hpp
-for i in "${@:2}"; do
-    if [ $((c%2)) -eq 0 ]
-    then
-		j="$(tr "a-z" "A-Z" <<< ${i:0:1})${i:1}"
-        printf "${prev} new$j" >> $1.hpp
-		if [ $i != ${!#} ]
+if [ $# -gt 2 ]
+then
+	printf "\t$1(" >> $1.hpp
+	for i in "${@:2}"; do
+		if [ $((c%2)) -eq 0 ]
 		then
-			printf ", " >> $1.hpp
+			j="$(tr "a-z" "A-Z" <<< ${i:0:1})${i:1}"
+			printf "${prev} new$j" >> $1.hpp
+			if [ $i != ${!#} ]
+			then
+				printf ", " >> $1.hpp
+			else
+				printf ");\n" >> $1.hpp
+			fi
 		else
-			printf ");\n" >> $1.hpp
+			prev=$i
 		fi
-    else
-        prev=$i
-    fi
-    c=$((c+1))
-done
+		c=$((c+1))
+	done
+fi
 printf "\t~$1(); \n" >> $1.hpp
 printf "\t$1& operator=( const $1 &rhs); \n" >> $1.hpp
 
@@ -111,39 +114,42 @@ echo "}" >> $1.cpp
 
 echo " " >> $1.cpp
 
-printf "$1::$1(" >> $1.cpp
-for i in "${@:2}"; do
-    if [ $((c%2)) -eq 0 ]
-    then
-		j="$(tr "a-z" "A-Z" <<< ${i:0:1})${i:1}"
-        printf "${prev} new$j" >> $1.cpp
-		if [ $i != ${!#} ]
-		then
-			printf ", " >> $1.cpp
-		else
-			printf ") \n\t: " >> $1.cpp
-		fi
-    else
-        prev=$i
-    fi
-    c=$((c+1))
-done
-for i in "${@:2}"; do
-    if [ $((c%2)) -eq 0 ]
-    then
-		j="$(tr "a-z" "A-Z" <<< ${i:0:1})${i:1}"
-        printf "$i(new$j)" >> $1.cpp
-		if [ $i != ${!#} ]
-		then
-			printf ", " >> $1.cpp
-		else
-			printf "\n{\n\n}\n\n" >> $1.cpp
-		fi
-    else
-        prev=$i
-    fi
-    c=$((c+1))
-done
+if [ $# -gt 2 ]
+	then
+		printf "$1::$1(" >> $1.cpp
+		for i in "${@:2}"; do
+			if [ $((c%2)) -eq 0 ]
+			then
+				j="$(tr "a-z" "A-Z" <<< ${i:0:1})${i:1}"
+				printf "${prev} new$j" >> $1.cpp
+				if [ $i != ${!#} ]
+				then
+					printf ", " >> $1.cpp
+				else
+					printf ") \n\t: " >> $1.cpp
+				fi
+			else
+				prev=$i
+			fi
+			c=$((c+1))
+		done
+		for i in "${@:2}"; do
+			if [ $((c%2)) -eq 0 ]
+			then
+				j="$(tr "a-z" "A-Z" <<< ${i:0:1})${i:1}"
+				printf "$i(new$j)" >> $1.cpp
+				if [ $i != ${!#} ]
+				then
+					printf ", " >> $1.cpp
+				else
+					printf "\n{\n\n}\n\n" >> $1.cpp
+				fi
+			else
+				prev=$i
+			fi
+			c=$((c+1))
+		done
+fi
 
 echo "$1::~$1()\n{" >> $1.cpp
 echo "" >> $1.cpp
@@ -174,7 +180,7 @@ for i in "${@:2}"; do
     if [ $((c%2)) -eq 0 ] 
     then
 		j="$(tr "a-z" "A-Z" <<< ${i:0:1})${i:1}"
-        echo "void $1::set$j($prev new$j) { $i= new$j; }" >> $1.cpp
+        echo "void $1::set$j($prev new$j) { $i = new$j; }" >> $1.cpp
 
     else
         
@@ -190,7 +196,7 @@ echo "void $1::toString()\n{" >> $1.cpp
 for i in "${@:2}"; do
     if [ $((c%2)) -eq 0 ] 
     then
-        echo "  cout << \"$i\" << $i << endl; " >> $1.cpp
+        echo "  std::cout << \"$i : \" << $i << std::endl; " >> $1.cpp
     fi
     c=$((c+1))
 done

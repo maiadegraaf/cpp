@@ -1,7 +1,7 @@
 #include "Cure.hpp"
 // Constructor initializes attributes to 0 by default 
 Cure::Cure()
-	: AMateria("Cure")
+	: AMateria("cure")
 {}
  
 Cure::Cure( const Cure& rhs)
@@ -16,10 +16,16 @@ Cure::~Cure()
 
 Cure&	Cure::operator=( const Cure& rhs )
 {
+	(void) rhs;
 	return *this;
 }
 
-AMateria* Cure::clone() const
+Cure* Cure::clone() const
 {
-	
+	return new Cure(*this);
+}
+
+void Cure::use(ICharacter& target)
+{
+	std::cout << " * shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
