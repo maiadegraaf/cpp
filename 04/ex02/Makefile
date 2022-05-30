@@ -1,4 +1,4 @@
-NAME = IDontWantToSetTheWorldOnFire
+NAME = AbstractClass
 MKDIR = mkdir
 
 CC = c++
