@@ -27,8 +27,8 @@ INCLUDES = -Iincludes -I
 
 all: $(NAME)
 
-$(NAME): $(SRC) $(HEADER)
-	$(CC) $(INCLUDES) $(FLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJS) $(HEADER)
+	$(CC) $(INCLUDES) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
 
 clean:

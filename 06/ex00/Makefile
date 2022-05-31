@@ -1,36 +1,25 @@
-NAME = Bureaucrat
+NAME = Convert
 MKDIR = mkdir
 
 CC = c++
 
 PATHS = .
 
-SRC	=	Bureaucrat.cpp \
-		Form.cpp \
-		PresidentialPardonForm.cpp \
-		RobotomyRequestForm.cpp \
-		ShrubberyCreationForm.cpp \
-		Intern.cpp \
-		main.cpp
+SRC	=	main.cpp \
+		Convert.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	Bureaucrat.hpp \
-			Form.hpp \
-			PresidentialPardonForm.hpp \
-			RobotomyRequestForm.hpp \
-			ShrubberyCreationForm.hpp \
-			Intern.hpp \
-			color.hpp
+HEADER	=	Convert.hpp
 
 INCLUDES = -Iincludes -I
 
 all: $(NAME)
 
-$(NAME): $(SRC) $(HEADER)
-	$(CC) $(INCLUDES) $(FLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJS) $(HEADER)
+	$(CC) $(INCLUDES) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "Success"
 
 clean:
