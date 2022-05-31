@@ -22,7 +22,6 @@ Form::Form(const std::string newName, const int newGradeSigned, const int newGra
 		throw GradeTooHighException();
 	else if (newGradeExec > LowGrade)
 		throw GradeTooLowException();
-	std::cout << *this << " was created. " << std::endl;
 }
 
 Form::~Form()

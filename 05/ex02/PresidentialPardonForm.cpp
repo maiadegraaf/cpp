@@ -45,6 +45,6 @@ void PresidentialPardonForm::toString()
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	checkPermissions(executor);
-	std::cout << target << " has been pardoned by Zephod Beeblebrox" << std::endl;
+	std::cout << BLUE << target << " has been pardoned by Zephod Beeblebrox" << RESET_COLOR << std::endl;
 }
  

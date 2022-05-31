@@ -3,7 +3,10 @@
 #include <iostream>
 #include <string>
 #include "Form.hpp"
- 
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+
 // Class definition 
 class Intern
 {

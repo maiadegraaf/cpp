@@ -2,29 +2,24 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
-	std::cout << "--------------[ Lets be bureaucratic ]--------------" << std::endl;
-	Bureaucrat Henry("Henry", 140), Bob("Bob", 2), George("George", 70);
-	PresidentialPardonForm AA1("Idi Amin");
-	ShrubberyCreationForm GH2("For the knights who say ni");
-	RobotomyRequestForm UH6("Boris Johnson");
+	std::cout << "--------------[ Create Intern ]--------------" << std::endl;
+	Intern	nameless;
+	Form	*one, *two, *three, *four;
 
-	std::cout << "\n--------------[    Shrubbery Form    ]--------------" << std::endl;
-	Henry.signForm(GH2);
-	George.signForm(GH2);
-	George.executeForm(GH2);
-	std::cout << "\n--------------[    Robotomy Form     ]--------------" << std::endl;
-	Bob.signForm(UH6);
-	George.executeForm(UH6);
-	std::cout << "\n--------------[  Presidential Form   ]--------------" << std::endl;
-	Henry.signForm(AA1);
-	Bob.signForm(AA1);
-	George.executeForm(AA1);
-	Bob.executeForm(AA1);
-	std::cout << "\n--------------[      DESTRUCT       ]--------------" << std::endl;
+	std::cout << "--------------[ Create Shrubbery Form ]--------------" << std::endl;
+	one = nameless.makeForm("shrubbery creation", "far far away");
 
+	std::cout << "--------------[ Create Robotomy Form ]--------------" << std::endl;
+	one = nameless.makeForm("robotomy request", "Chris");
 
+	std::cout << "--------------[ Create Presidential Form ]--------------" << std::endl;
+	one = nameless.makeForm("presidential pardon", "Mobutu");
+
+	std::cout << "--------------[ Create Fake Form ]--------------" << std::endl;
+	one = nameless.makeForm("forgery", "John Doe");
 	return (0) ;
 }

@@ -44,10 +44,10 @@ void RobotomyRequestForm::toString()
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	checkPermissions(executor);
-	std::cout << " * some drilling noises * " << std::endl;
+	std::cout << BLUE << " * some drilling noises * " << RESET_COLOR << std::endl;
 	if ((std::rand() % 2) == 0)
-		std::cout << target << " has been succesfully robotomized." << std::endl;
+		std::cout << GREEN << target << " has been succesfully robotomized." << RESET_COLOR << std::endl;
 	else
-		std::cout << "The robotomy has failed." << std::endl;
+		std::cout << MAGENTA << "The robotomy has failed." << RESET_COLOR << std::endl;
 }
  
