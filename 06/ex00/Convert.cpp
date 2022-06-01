@@ -3,7 +3,6 @@
 Convert::Convert()
 	: c(0), isC(false), i(0), isI(false), f(0), isF(false), d(0), isD(false)
 {
-
 }
  
 Convert::Convert( const Convert& rhs)
@@ -13,7 +12,6 @@ Convert::Convert( const Convert& rhs)
 
 Convert::~Convert()
 {
-
 }
 
 Convert&	Convert::operator=( const Convert& rhs )
@@ -24,7 +22,6 @@ Convert&	Convert::operator=( const Convert& rhs )
 	setD(rhs.d);
 	return *this;
 }
-
 
 //Getters 
 NumType Convert::getInput() const { return input; }
@@ -41,7 +38,7 @@ template <typename T> void convertC(T c, NumType input, Convert *basic)
 {
 	if (input == CHAR)
 		return ;
-	if (c > 255 || c < 0 || !isprint(c))
+	if (c != (int)c || c > 255 || c < 0 || !isprint(c))
 		return ;
 	basic->setC(static_cast<char>(c));
 }
@@ -59,7 +56,7 @@ template <typename T> void convertF(T d, NumType input, Convert *basic)
 {
 	if (input == FLOAT)
 		return ;
-	if (d > FLT_MAX || d < -FLT_MIN)
+	if (d > FLT_MAX || d < -FLT_MAX)
 		return ;
 	basic->setF(static_cast<float>(d));
 }
@@ -133,8 +130,11 @@ int Convert::checkAll(std::string input)
 	};
 	for (int i = 0; i < 4; i++)
 	{
-		if ((this->*checkers[i])(input) == EXIT_SUCCESS)
+		int j = (this->*checkers[i])(input);
+		if (j == EXIT_SUCCESS)
 			return (EXIT_SUCCESS);
+		else if (j == 2)
+			return (EXIT_FAILURE);
 	}
 	return (EXIT_FAILURE);
 }
@@ -155,9 +155,12 @@ int Convert::checkI(std::string input)
 	size_t i;
 	try
 	{
-		int conv = std::stoi(input, &i, 10);
+		long conv = std::stol(input, &i, 10);
 		if (i == input.length())
 		{
+			std::cout << "INT" << std::endl;
+			if (i == LONG_MAX || conv > INT_MAX || conv < INT_MIN)
+				return(2);
 			setI(conv);
 			setInput(INT);
 			return (EXIT_SUCCESS);
@@ -175,9 +178,11 @@ int Convert::checkF(std::string input)
 	size_t i;
 	try
 	{
-		float conv = std::stof(input, &i);
+		double conv = std::stod(input, &i);
 		if (i == (input.length() - 1) && input[i] == 'f')
-		{
+		{	
+			if (conv == HUGE_VAL || conv > FLT_MAX || conv < -FLT_MAX)
+				return(2);
 			setF(conv);
 			setInput(FLOAT);
 			return (EXIT_SUCCESS);
@@ -198,6 +203,8 @@ int Convert::checkD(std::string input)
 		double conv = std::stod(input, &i);
 		if (i == input.length())
 		{
+			if (conv == HUGE_VAL)
+				return (2);
 			setD(conv);
 			setInput(DOUBLE);
 			return (EXIT_SUCCESS);
@@ -243,9 +250,7 @@ std::ostream& operator<<(std::ostream& os, const Convert& obj)
 	else
 		os << obj.getF() << "f" << std::endl;
 	os << "double: ";
-	if (obj.getIsD() == false)
-		os << "Non displayable" << std::endl;
-	else if (obj.getD() == (int)obj.getD())
+	if (obj.getD() == (int)obj.getD())
 		os << obj.getD() << ".0" << std::endl;
 	else
 		os << obj.getD() << std::endl;

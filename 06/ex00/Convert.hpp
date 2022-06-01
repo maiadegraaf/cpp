@@ -4,6 +4,7 @@
 #include <string>
 #include <cmath>
 #include <float.h>
+#include  <iomanip>
 
 enum NumType {
 	CHAR,
