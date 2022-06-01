@@ -1,17 +1,17 @@
-NAME = Serialization
+NAME = Array
 MKDIR = mkdir
 
 CC = c++
 
 PATHS = .
 
-SRC	=	main.cpp
+SRC	=	main.cpp 
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	
+HEADER	=	Array.hpp
 
 INCLUDES = -Iincludes -I
 

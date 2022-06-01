@@ -1,17 +1,21 @@
-NAME = Serialization
+NAME = RealTypeIdentifier
 MKDIR = mkdir
 
 CC = c++
 
 PATHS = .
 
-SRC	=	main.cpp
+SRC	=	main.cpp \
+		Base.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	
+HEADER	=	A.hpp \
+			B.hpp \
+			Base.hpp \
+			C.hpp
 
 INCLUDES = -Iincludes -I
 

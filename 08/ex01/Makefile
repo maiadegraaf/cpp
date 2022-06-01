@@ -1,17 +1,18 @@
-NAME = Serialization
+NAME = Span
 MKDIR = mkdir
 
 CC = c++
 
 PATHS = .
 
-SRC	=	main.cpp
+SRC	=	main.cpp \
+		Span.cpp
 
 OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	
+HEADER	=	Span.hpp
 
 INCLUDES = -Iincludes -I
 

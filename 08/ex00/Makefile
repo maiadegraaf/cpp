@@ -1,17 +1,17 @@
-NAME = Serialization
+NAME = EasyFind
 MKDIR = mkdir
 
 CC = c++
 
 PATHS = .
 
-SRC	=	main.cpp
+SRC	=	main.cpp 
 
 OBJS	=	$(SRC:.cpp=.o)
 
-FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
+FLAGS	=	-std=c++98 -Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	
+HEADER	=	easyfind.hpp
 
 INCLUDES = -Iincludes -I
 

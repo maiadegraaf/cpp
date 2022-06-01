@@ -1,4 +1,4 @@
-NAME = Serialization
+NAME = Iter
 MKDIR = mkdir
 
 CC = c++
@@ -11,7 +11,7 @@ OBJS	=	$(SRC:.cpp=.o)
 
 FLAGS	=	-Wall -Werror -Wextra #-fsanitize=address
 
-HEADER	=	
+HEADER	=	iter.hpp
 
 INCLUDES = -Iincludes -I
 
