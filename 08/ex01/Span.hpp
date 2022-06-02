@@ -11,7 +11,6 @@ class Span
 {
 private: 
 	std::vector<int> _spn;
- 
 public: 
 // Constructor 
 	Span(unsigned int N);

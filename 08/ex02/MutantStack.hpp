@@ -7,6 +7,7 @@
 template <class T>
 class MutantStack : public std::stack<T>
 {
+public:
 	typedef T* iterator;
 	MutantStack() {}
 	~MutantStack() {}
@@ -19,14 +20,14 @@ class MutantStack : public std::stack<T>
 		*this = rhs;
 		return *this;
 	}
-	MutantStack end(void)
+	iterator end(void)
 	{
-		return *this->top();
+		return (&this->top());
 	}
-	MutantStack begin(void)
+	iterator begin(void)
 	{
-		iterator last = *this->top();
-		for (int i = *this->size(); i > 0; i--)
+		iterator last = &this->top();
+		for (int i = this->size(); i > 1; i--)
 			last--;
 		return last;
 	}
