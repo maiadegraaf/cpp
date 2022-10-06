@@ -2,7 +2,7 @@
 
 void	incrementWhilePos()
 {
-	Bureaucrat Henry("Henry", 145);
+	Bureaucrat Henry("Henry", 5);
 	std::cout << Henry << std::endl;
 	for (int i = 0; i < 100; i++)
 	{
@@ -21,7 +21,7 @@ void	incrementWhilePos()
 
 void	decrementWhilePos()
 {
-	Bureaucrat Sam("Sam", 5);
+	Bureaucrat Sam("Sam", 145);
 	std::cout << Sam << std::endl;
 	for (int i = 0; i < 100; i++)
 	{

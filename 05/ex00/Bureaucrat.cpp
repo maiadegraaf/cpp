@@ -45,12 +45,12 @@ void Bureaucrat::setGrade(int newGrade)
 
 void Bureaucrat::operator--(void)
 {
-	setGrade(grade - 1);
+	setGrade(grade + 1);
 }
 
 void Bureaucrat::operator++(void)
 {
-	setGrade(grade + 1);
+	setGrade(grade - 1);
 }
  
 // toString 

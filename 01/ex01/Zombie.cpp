@@ -10,7 +10,7 @@ void	Zombie::setName(std::string newName)
 	name = newName;
 }
 
-void	Zombie::destruct(void)
+Zombie::~Zombie()
 {
-	std::cout << "\033[0;31mZombie " << name << " has been destroyed\033[0m\n" << std::endl;
+	std::cout << "\033[0;31mZombie " << name << " has been destroyed\033[0m" << std::endl;
 }

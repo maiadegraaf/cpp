@@ -22,7 +22,7 @@ Form::Form(const std::string newName, const int newGradeSigned, const int newGra
 		throw GradeTooHighException();
 	else if (newGradeExec > LowGrade)
 		throw GradeTooLowException();
-	std::cout << *this << " was created. " << std::endl;
+	std::cout << "FORM CREATED:\n" << *this << std::endl;
 }
 
 Form::~Form()
@@ -94,10 +94,13 @@ const char *Form::FormNotYetSignedException::what() const throw ()
 
 std::ostream& operator<<(std::ostream& os, const Form& obj)
 {
-	os << obj.getName() << ", form sign grade " << obj.getGradeSigned() << ", execute sign grade " << obj.getGradeSigned();
+	os << "name: " << obj.getName() << std::endl; 
+	os << "isSigned: ";
 	if (obj.getIsSigned())
-		os << ", and the form IS signed";
+		os << GREEN << "YES" << RESET_COLOR << std::endl;
 	else
-		os << ", and the form is NOT signed";
+		os << RED << "NO" << RESET_COLOR << std::endl;
+	os << "gradeSigned: " << obj.getGradeSigned() << std::endl; 
+	os << "gradeExec: " << obj.getGradeExec() << std::endl; 
 	return os;
 }

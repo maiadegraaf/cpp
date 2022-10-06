@@ -65,7 +65,7 @@ void Bureaucrat::signForm(Form &f)
 	try
 	{
 		f.beSigned(*this);
-		std::cout << *this << " signed " << f << std::endl;
+		std::cout << *this << " signed:\n" << f << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -78,7 +78,7 @@ void Bureaucrat::executeForm(Form const & form)
 	try
 	{
 		form.execute(*this);
-		std::cout << *this << " executed " << form << std::endl;
+		std::cout << *this << " executed:\n" << form << std::endl;
 	}
 	catch(const std::exception& e)
 	{
